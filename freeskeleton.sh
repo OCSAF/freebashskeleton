@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #################################################################################
-################### FREE - Skeleton - under GPLv3             ###################
+################### FREE - Skeleton Version 0.2 - under GPLv3 ###################
 ################### by Mathias Gut, Netchange Informatik GmbH ###################
 ################### From the freecybersecurity.org Project    ###################
 ################### Thanks to the community for the ideas     ###################
@@ -13,6 +13,34 @@
 #   your info...                                         #
 #   your info...                                         #
 ##########################################################
+
+#######################
+### Preparing tasks ###
+#######################
+
+#Check root rights (sudo) before execution.
+if [ $(id -u) -ne 0 ]; then
+	echo "You need root rights (sudo)."
+	exit
+fi
+
+#Check if a program is installed.
+program=(python3 vi emacs)
+for i in "${program[@]}"; do
+	if [ -z $(command -v ${i}) ]; then
+		echo "${i} is not installed."
+		exit
+	fi
+done
+
+#Read current date and time in hours and minutes into variable.
+time=$(date +%d.%m.%Y-%H:%M)
+
+#Check if a folder exists and create otherwise.
+if ! [ -d "./inputs/temp" ]; then
+	mkdir ./inputs/temp
+fi
+
 
 ############################
 ### Integrated functions ###
