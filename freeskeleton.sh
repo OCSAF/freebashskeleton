@@ -33,6 +33,20 @@ for i in "${program[@]}"; do
 	fi
 done
 
+#Check if a program is installed via an input file.
+while read line
+do
+	unset program
+
+	program=$(echo "$line" | awk -F ';;' '{print $1}')
+
+	if [ -z $(command -v ${program}) ]; then
+		echo "${program} is not installed."
+		exit
+	fi
+
+done <./commandcheck.txt
+
 #Read current date and time in hours and minutes into variable.
 time=$(date +%d.%m.%Y-%H:%M)
 
