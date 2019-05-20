@@ -41,10 +41,10 @@ else
 	rON='\e[31m'	  #red color ON
 	gON='\e[32m'	  #green color ON
 	yON='\e[33m'	  #yellow color ON
-	bON='\e[34m'  	#blue color ON
-	mON='\e[35m'  	#magenta color ON
+	bON='\e[34m'  	  #blue color ON
+	mON='\e[35m'  	  #magenta color ON
 	cON='\e[36m'	  #cyan color ON
-	lgrON='\e[37m'	#light gray ON
+	lgrON='\e[37m'	  #light gray ON
 
 	dgON='\e[90m'	  #dark grey ON
 	lrON='\e[91m'	  #light red ON
